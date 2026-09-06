@@ -8,6 +8,11 @@ const path = require('path');
 const DATA_FILE = path.join(__dirname, 'data', 'db.json');
 
 function load() {
+  const dataDir = path.dirname(DATA_FILE);
+  if (!fs.existsSync(dataDir)) {
+    fs.mkdirSync(dataDir, { recursive: true });
+  }
+
   if (!fs.existsSync(DATA_FILE)) {
     const seed = {
       users: [],
