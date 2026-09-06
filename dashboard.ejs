@@ -1,0 +1,22 @@
+<%- include('partials/header', { user }) %>
+
+<main class="dashboard-main">
+  <h1>Your lessons</h1>
+  <p class="sub"><%= completedIds.length %> of <%= modules.length %> completed</p>
+
+  <div class="module-list">
+    <% modules.forEach(mod => { %>
+      <a href="/module/<%= mod.id %>" class="module-card <%= completedIds.includes(mod.id) ? 'is-done' : '' %>">
+        <div class="module-card-text">
+          <h2><%= mod.title %></h2>
+          <p><%= mod.description %></p>
+        </div>
+        <span class="status-badge">
+          <%= completedIds.includes(mod.id) ? 'Done' : 'Start' %>
+        </span>
+      </a>
+    <% }) %>
+  </div>
+</main>
+
+<%- include('partials/footer') %>

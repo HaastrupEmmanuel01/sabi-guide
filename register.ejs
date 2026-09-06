@@ -1,0 +1,30 @@
+<%- include('partials/header') %>
+
+<main class="auth-main">
+  <h1>Create your account</h1>
+  <p class="sub">It only takes a minute.</p>
+
+  <% if (error) { %>
+    <p class="error-msg"><%= error %></p>
+  <% } %>
+
+  <form method="POST" action="/register" class="auth-form">
+    <div class="field">
+      <label for="name">Full name</label>
+      <input type="text" id="name" name="name" required autofocus />
+    </div>
+    <div class="field">
+      <label for="phone">Phone number</label>
+      <input type="text" id="phone" name="phone" required />
+    </div>
+    <div class="field">
+      <label for="password">Password</label>
+      <input type="password" id="password" name="password" required minlength="4" />
+    </div>
+    <button type="submit" class="btn-primary btn-large">Create account</button>
+  </form>
+
+  <p class="switch-link">Already have an account? <a href="/login">Log in</a></p>
+</main>
+
+<%- include('partials/footer') %>

@@ -1,0 +1,23 @@
+<%- include('partials/header', { user }) %>
+
+<main class="module-main">
+  <a href="/dashboard" class="back-link">← Back to lessons</a>
+  <h1><%= mod.title %></h1>
+  <p class="sub"><%= mod.description %></p>
+
+  <ol class="steps-list">
+    <% mod.steps.forEach(step => { %>
+      <li><%= step %></li>
+    <% }) %>
+  </ol>
+
+  <% if (completed) { %>
+    <p class="done-msg">✓ You've completed this lesson.</p>
+  <% } else { %>
+    <form method="POST" action="/module/<%= mod.id %>/complete">
+      <button type="submit" class="btn-primary btn-large">Mark as done</button>
+    </form>
+  <% } %>
+</main>
+
+<%- include('partials/footer') %>

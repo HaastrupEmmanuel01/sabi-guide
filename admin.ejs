@@ -1,0 +1,27 @@
+<%- include('partials/header', { user }) %>
+
+<main class="admin-main">
+  <div class="admin-head">
+    <h1>Manage lessons</h1>
+    <a href="/admin/new" class="btn-primary">+ New lesson</a>
+  </div>
+
+  <div class="admin-list">
+    <% modules.forEach(mod => { %>
+      <div class="admin-row">
+        <div>
+          <h2><%= mod.title %></h2>
+          <p><%= mod.description %></p>
+        </div>
+        <div class="admin-actions">
+          <a href="/admin/<%= mod.id %>/edit">Edit</a>
+          <form method="POST" action="/admin/<%= mod.id %>/delete" onsubmit="return confirm('Delete this lesson?');">
+            <button type="submit" class="link-btn">Delete</button>
+          </form>
+        </div>
+      </div>
+    <% }) %>
+  </div>
+</main>
+
+<%- include('partials/footer') %>

@@ -1,0 +1,24 @@
+<%- include('partials/header', { user }) %>
+
+<main class="admin-main">
+  <a href="/admin" class="back-link">← Back to manage lessons</a>
+  <h1><%= mod ? 'Edit lesson' : 'New lesson' %></h1>
+
+  <form method="POST" action="<%= mod ? '/admin/' + mod.id + '/edit' : '/admin/new' %>" class="auth-form">
+    <div class="field">
+      <label for="title">Title</label>
+      <input type="text" id="title" name="title" value="<%= mod ? mod.title : '' %>" required />
+    </div>
+    <div class="field">
+      <label for="description">Short description</label>
+      <input type="text" id="description" name="description" value="<%= mod ? mod.description : '' %>" required />
+    </div>
+    <div class="field">
+      <label for="steps">Steps (one per line)</label>
+      <textarea id="steps" name="steps" rows="8" required><%= mod ? mod.steps.join('\n') : '' %></textarea>
+    </div>
+    <button type="submit" class="btn-primary btn-large"><%= mod ? 'Save changes' : 'Create lesson' %></button>
+  </form>
+</main>
+
+<%- include('partials/footer') %>

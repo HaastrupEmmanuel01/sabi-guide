@@ -1,0 +1,17 @@
+{
+  "name": "sabi-guide",
+  "version": "1.0.0",
+  "description": "A digital literacy tracker helping older Nigerian users learn essential phone skills, with progress tracking and an admin panel for managing lessons.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "author": "Haastrup Emmanuel Adedayo",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^3.0.3",
+    "ejs": "^6.0.1",
+    "express": "^5.2.1",
+    "express-session": "^1.19.0"
+  }
+}

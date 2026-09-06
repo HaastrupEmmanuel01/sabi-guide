@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Sabi Guide</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+<header class="site-header">
+  <span class="logo">Sabi Guide</span>
+  <% if (typeof user !== 'undefined' && user) { %>
+    <nav>
+      <span class="greeting">Hi, <%= user.name.split(' ')[0] %></span>
+      <% if (user.role === 'admin') { %>
+        <a href="/admin">Manage Lessons</a>
+      <% } %>
+      <a href="/logout">Log out</a>
+    </nav>
+  <% } %>
+</header>
